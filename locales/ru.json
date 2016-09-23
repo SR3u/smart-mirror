@@ -61,9 +61,9 @@
             "description": "Go to sleep."
         },
         "wake_up": {
-            "text": "Wake up",
-            "voice": "Wake up",
-            "description": "Wake up."
+            "text": "Проснись",
+            "voice": "Проснись",
+            "description": "Выход из режима сна."
         },
         "debug": {
             "text": "Show debug information",
