@@ -60,10 +60,10 @@
         <div class="time" ng-bind="date.format('LT')"></div>
         <ul class="calendar fade" ng-show="focus == 'default'" ng-class="config.calendar.showCalendarNames ? 'show-calendar-names' : ''">
             <li class="event" ng-repeat="event in calendar" ng-class="(calendar[$index - 1].label != event.label) ? 'day-marker' : ''">
-                <div class="event-details">
-                    <span class="day">
-                      <span ng-bind="event.startName"></span>
-                      <span ng-if="event.startName != event.endName"> - <span ng-bind="event.endName"></span></span>
+                <div class="event-details">                	
+                	<span class="day" ng-if="calendar[$index - 1].startName != event.startName && calendar[$index - 1].endName != event.endName">                    
+                      	<span ng-bind="event.startName"></span>
+                      	<span ng-if="event.startName != event.endName"> - <span ng-bind="event.endName"></span></span>
                     </span>
                     <div class="details calendar-name" ng-bind="event.calendarName"></div>
                     <span class="summary" ng-bind="event.SUMMARY"></span>
@@ -90,7 +90,7 @@
           </div>
           <div class="weather-week" ng-repeat="forecast in weeklyForecast.data" ng-if="$index > 0">
             <div class="weather-week-day">
-              <span class="day light-grey" ng-bind="forecast.day"></span>
+              <span class="weather-week.day light-grey" ng-bind="forecast.day"></span>
               <canvas id="icon_weather_{{forecast.counter}}" width="33" height="25"></canvas>
               <span class="icon-small dimmed wi wi-fw {{forecast.wi}}"></span>
               <span class="temperature temperature-min" ng-bind="forecast.temperatureMin + '&deg;'"></span>
@@ -173,7 +173,7 @@
           <div class="fade" ng-if="focus == 'default' && news">
             <div class="news-title dimmed fade">
               <span><i class="fa fa-rss fade" style="margin-right: 5px";></i></span>
-              <span fade>Source: <span ng-bind="news.title"></span>, Last Updated: <span ng-bind="news.lastUpdated.format('MMM DD, h:mm a')"></span></span>
+              <span fade><span ng-bind="news.title"></span>, <span ng-bind="news.lastUpdated.format('MMM DD, hh:mm')"></span></span>
             </div>
             <div class="news-content fade">
               <span class="fade" ng-bind="news.content"></span>

@@ -151,10 +151,11 @@ ul.calendar {
 	display: inline-block;
 }
 
-.calendar .day {
-    display: none;
+.day {     
     font-weight: bold;
-    vertical-align: top;
+    vertical-align: top;        
+    border-bottom: 1px solid white;
+    margin-bottom: -1px;
 }
 
 .calendar span.summary {
@@ -208,7 +209,7 @@ ul.calendar {
 
 .weather-week {
     margin-right: 10px;
-    font-size: 24px;
+    font-size: 24px;    
 }
 
 .weather-week .day {
